@@ -25,7 +25,7 @@
             ref="songList"
             class="list-scroll"
             v-if="currentIndex === 0"
-            :data="playHistory" 
+            :data="playHistory"
             :refreshDelay="refreshDelay"
           >
             <div class="list-inner">

@@ -35,6 +35,7 @@ export default {
         this.$router.push("/singer");
         return;
       }
+      
       getSingerDetail(this.singer.id).then(res => {
         // if (res.code === ERR_OK) {
         //   // console.log(res.data);

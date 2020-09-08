@@ -1,12 +1,13 @@
 <template>
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
-      <slot> </slot>
+      <slot></slot>
     </div>
     <div class="dots">
       <span
         class="dot"
         v-for="(item, index) in dots"
+        :key="index"
         :class="{ active: currentPageIndex === index }"
       ></span>
     </div>
@@ -92,12 +93,12 @@ export default {
     },
     setSliderWidth(isResize) {
       this.children = this.$refs.sliderGroup.children;
+      console.log(this.children)
       let width = 0;
       let sliderWidth = this.$refs.slider.clientWidth;
       for (let i = 0; i < this.children.length; i++) {
         let child = this.children[i];
         addClass(child, "slider-item");
-
         child.style.width = sliderWidth + "px";
         width += sliderWidth;
       }
@@ -118,18 +119,7 @@ export default {
           speed: 400
         }
       });
-
-      // this.slider.on("scrollEnd", () => {
-      //   let pageIndex = this.slider.getCurrentPage().pageX;
-      //   this.currentPageIndex = pageIndex;
-      //   if (this.loop) {
-      //     pageIndex -= 1;
-      //   }
-
-      //   if (this.autoPlay) {
-      //     this.play();
-      //   }
-      // });
+      console.log(this.slider)
       this.slider.on("scrollEnd", this.onScrollEnd);
 
       this.slider.on("touchend", () => {
@@ -156,20 +146,11 @@ export default {
     },
     play() {
       clearTimeout(this.timer);
-      // let pageIndex = this.currentPageIndex;
-      // if (this.loop) {
-      //   pageIndex += 1;
-      // }
-      // console.log(pageIndex);
       this.timer = setTimeout(() => {
         this.slider.next();
       }, this.interval);
     }
   }
-  // // 销毁计时器
-  // destroyed() {
-  //   clearTimeout(this.timer);
-  // }
 };
 </script>
 

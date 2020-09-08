@@ -2,8 +2,8 @@ import jsonp from "common/js/jsonp";
 import { commonParams, options } from "./config";
 
 export function getSingerList() {
-  // const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
-  const url = "https://u.y.qq.com/cgi-bin/musicu.fcg";
+  const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
+  // const url = "https://u.y.qq.com/cgi-bin/musicu.fcg";
 
   const data = Object.assign({}, commonParams, {
     loginUin: 0,

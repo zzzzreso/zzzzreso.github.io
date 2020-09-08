@@ -1643,7 +1643,6 @@ export default {
     //   });
     // },
     selectSinger(singer) {
-      // console.log(singer)
       this.$router.push({
         path: `/singer/${singer.id}`
       });
@@ -1662,7 +1661,7 @@ export default {
           map.hot.items.push({
             id: item.Fsinger_mid,
             name: item.Fsinger_name,
-            //歌手对应图片地址，用模板字符串``标识，可以嵌入变量
+            //歌手对应图片地址
             avatar: `https://y.gtimg.cn/music/photo_new/T001R300x300M000${
               item.Fsinger_mid
             }.jpg?max_age=2592000`

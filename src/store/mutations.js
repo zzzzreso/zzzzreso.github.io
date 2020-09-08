@@ -1,10 +1,8 @@
 import * as types from './mutation-types'
-import Vue from 'vue'
 
 const mutations = {
   [types.SET_SINGER](state, singer) {
-    // state.singer = singer
-    Vue.set(state, 'singer', singer)
+    state.singer = singer
   },
   [types.SET_PLAYING_STATE](state, flag) {
     state.playing = flag

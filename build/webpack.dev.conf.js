@@ -22,13 +22,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
 
-  // these devServer options should be customized in /config/index.js
+  // these devServer option s should be customized in /config/index.js
   devServer: {
     before(app) {
+      // 加载解析urlencoded请求体的中间件
       app.use(bodyParser.urlencoded({ extended: true }))
 
       // 获取歌单
-      // TODO 页面中引用，请求地址一定要加上/api，没加上一直报404错误
       app.get('/api/getDiscList', function (req, res) {
         let url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
 
